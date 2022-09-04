@@ -748,7 +748,7 @@ But: Oh yeah, it basically seems to work, too!
 
 The changes I made to this one:
 
-* Commented out ```;<FLOAD "TELL.XBIN">```. We do net have this `RSUBR` file.
+* Commented out ```;<FLOAD "TELL.XBIN">```. We do not have this `RSUBR` file.
   ```
   ;"For READST"
   
