@@ -140,7 +140,7 @@ Let's look at the differences.
   <GC-DUMP ,ZCODE .ZIN>
   <CLOSE .ZIN>
   ```
-  The output file `ZIN` (sic) is opende in binary mode.
+  The output file `ZIN` (sic) is opened in binary mode.
   The compiled story in `,ZCODE` will be written with ```<GC-DUMP ...``` to the file
   and the file is closed.
   The problem is, that `GC-DUMP` doesn't work in this muddle version
@@ -162,7 +162,7 @@ Let's look at the differences.
   In my tests the line ```<GC-DUMP ,ZCODE .ZIN> DONE.``` was never reached,
   Muddle crashed. So I changed the output mode from `"PRINTB"` to `"PRINT"`
   and replaced `GC-DUMP` with a simple `PRINT`.
-  Before saving the compiled code I do a `BLOAT` and force a garbage collecter
+  Before saving the compiled code I do a `BLOAT` and force a garbage collector
   run `<GC 0 T>`. It made the process a bit more stable, I think `ZORK II`
   pushes the muddle interpreter to its limits here.
   What ```<PRINT ,ZCODE .ZIN>``` produces, I will discuss after the 
@@ -492,7 +492,7 @@ Again, let's discuss the changes I've made (here to `ZIP MUD`).
   ;<PRINC "[READ DONE]">
   ;<CRLF>
   ```
-  The solution I found is was to change in ```<DEFINE ZREP ...```
+  The solution I found was to change in ```<DEFINE ZREP ...```
   all references from `#LOSE 10` to `#LOSE 13`:
   ![`ZREP-Diff`](images/ZIP-Changes-ZREP.png)
 
@@ -516,7 +516,7 @@ Why this?
 
 Because of what I suspect memory and gc issues, we have to 
 load the `ZCODE` first, and then the `ZIP` interpreter.
-After the start of the `MUDDLE` interpreter the seems to exist
+After the start of the `MUDDLE` interpreter there seems to exist
 large enough contiguous memory region to allocate the 
 needed ```<IBYTES ``` memory array.
 This is the file `ZIPIT MUD` is used for: 
@@ -835,7 +835,7 @@ The changes I made to this one:
   Originally slot 6 contains the escape ASCII code 27 (33 octal). Escape must be used to terminate
   and evaluate an input line. I changed it to 13 to make the input channel accept a
   carriage return in `READSTRING`. 
-  This is not documented in *The MDL Programming Language* as far I can see.
+  This is not documented in *The MDL Programming Language* as far as I can see.
   ![`ZIL-Changes-2`](images/ZIL-Changes-2.png)
 
   In ```<ROUTINE ZLOAD ... ``` I added a `T` as second argument to ```<ZFLOAD ...``` call
